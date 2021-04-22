@@ -816,7 +816,7 @@ dataSources:
           file: ./abis/ERC20.json
       eventHandlers:
         - event: Transfer(indexed address,indexed address,uint256)
-          handler: handleShareTransfer
+          handler: handleAffiliateShareTransfer
       file: ./src/mapping.ts
 
 # ===== Strategy Template =====
