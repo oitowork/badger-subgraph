@@ -114,3 +114,36 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleShareTransfer
       file: ./src/mapping.ts
+
+# ===== Strategy Template =====
+templates:
+  - name: Strategy
+    kind: ethereum/contract
+    network: bsc
+    source:
+      abi: Strategy
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      file: ./src/mapping.ts
+      entities:
+        - Vault
+        - Deposit
+        - Withdraw
+        - Harvest
+        - Transfer
+        - AccountVaultBalance
+        - Account
+        - Token
+      abis:
+        - name: Strategy
+          file: ./abis/Strategy.json
+        - name: V1Contract
+          file: ./abis/V1Contract.json
+        - name: Controller
+          file: ./abis/Controller.json
+      eventHandlers:
+        - event: Harvest(uint256,indexed uint256)
+          handler: handleHarvest
+
