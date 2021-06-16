@@ -26,6 +26,7 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleBadgerTransfer
       file: ./src/mapping.ts
+
   - kind: ethereum/contract
     name: Digg
     network: mainnet
@@ -49,3 +50,28 @@ dataSources:
         - event: Transfer(indexed address,indexed address,uint256)
           handler: handleDiggTransfer
       file: ./src/mapping.ts
+
+  - kind: ethereum/contract
+    name: ibBTC
+    network: mainnet
+    source:
+      address: "0xc4E15973E6fF2A35cC804c2CF9D2a1b817a8b40F"
+      abi: bBTC
+      startBlock: 12342123
+    mapping:
+      kind: ethereum/events
+      language: wasm/assemblyscript
+      apiVersion: 0.0.4
+      entities:
+        - TokenBalance
+        - Token
+      abis:
+        - name: bBTC
+          file: ./abis/bBTC.json
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handleIbBTCTransfer
+      file: ./src/mapping.ts
+
