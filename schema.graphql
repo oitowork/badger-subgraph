@@ -306,3 +306,11 @@ type TokenBalance @entity {
   balance: BigInt!
   token: Token!
 }
+
+type TreeDistribution @entity {
+  id: ID!
+  token: Token!
+  amount: BigInt!
+  blockNumber: BigInt!
+  timestamp: BigInt!
+}
