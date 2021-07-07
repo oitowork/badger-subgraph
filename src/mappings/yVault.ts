@@ -35,7 +35,7 @@ function handleDeposit(
   deposit.totalSupply = vault.totalSupplyRaw;
   deposit.available = vault.availableRaw;
   deposit.transaction = event.transaction.hash.toHexString();
-
+  deposit.blockNumber = event.block.number
   deposit.save();
 }
 
@@ -58,6 +58,7 @@ function handleWithdrawal(
   withdraw.totalSupply = vault.totalSupplyRaw;
   withdraw.available = vault.availableRaw;
   withdraw.transaction = event.transaction.hash.toHexString();
+  withdraw.blockNumber = event.block.number
 
   withdraw.save();
 }

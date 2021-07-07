@@ -146,6 +146,7 @@ interface Action @entity {
   totalSupply: BigInt!
   available: BigInt!
   transaction: Transaction!
+  blockNumber: BigInt!
 }
 
 type Deposit implements Action @entity {
@@ -159,6 +160,7 @@ type Deposit implements Action @entity {
   totalSupply: BigInt!
   available: BigInt!
   transaction: Transaction!
+  blockNumber: BigInt!
 }
 
 type Withdrawal implements Action @entity {
@@ -172,6 +174,7 @@ type Withdrawal implements Action @entity {
   totalSupply: BigInt!
   available: BigInt!
   transaction: Transaction!
+  blockNumber: BigInt!
 }
 
 type Harvest @entity {
@@ -235,23 +238,6 @@ type Geyser @entity {
   unstakeEvents: [UnstakedEvent!]! @derivedFrom(field: "geyser")
 }
 
-# # Each user has account data for one geyser
-# type GeyserAccountData @entity {
-#   id: ID!
-#   geyser: Geyser!
-#   stakes: [GeyserStake!]! @derivedFrom(field: "account")
-#   lastUpdate: BigInt!
-#   cumulativeShareSeconds: BigInt!
-# }
-
-# type GeyserStake @entity {
-#   id: ID!
-#   geyser: Geyser!
-#   account: Account!
-#   amount: BigInt!
-#   stakedAt: BigInt!
-# }
-
 type StakedEvent @entity {
   id: ID!
   geyser: Geyser!
@@ -272,37 +258,4 @@ type UnstakedEvent @entity {
   timestamp: BigInt!
   blockNumber: BigInt!
   data: Bytes!
-}
-
-type HarvestEvent @entity {
-  id: ID!
-  sourceAddress: String!
-  sourceId: String!
-}
-
-type FarmHarvestEvent @entity {
-  id: ID!
-  totalFarmHarvested: BigInt!
-  farmToRewards: BigInt!
-  governancePerformanceFee: BigInt!
-  strategistPerformanceFee: BigInt!
-  timestamp: BigInt!
-  blockNumber: BigInt!
-}
-
-type SushiHarvestEvent @entity {
-  id: ID!
-  xSushiHarvested: BigInt!
-  totalxSushi: BigInt!
-  toStrategist: BigInt!
-  toGovernance: BigInt!
-  toBadgerTree: BigInt!
-  timestamp: BigInt!
-  blockNumber: BigInt!
-}
-
-type TokenBalance @entity {
-  id: ID!
-  balance: BigInt!
-  token: Token!
 }
