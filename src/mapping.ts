@@ -5,4 +5,4 @@ export { handleFarmHarvest } from './mappings/farm';
 export { handleSushiHarvest } from './mappings/sushi';
 export { handleBadgerTransfer } from './mappings/badger';
 export { handleDiggTransfer } from './mappings/digg';
-export { handleTreeDistribution } from './mappings/treeDistribution'
+export { handleTreeDistribution } from './mappings/treeDistribution';
