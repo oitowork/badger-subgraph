@@ -17,8 +17,8 @@
     "lint:fix": "eslint src --rulesdir . --fix && prettier --config .prettierrc.json --write  **/*.js **/*.md"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "^0.18.0",
-    "@graphprotocol/graph-ts": "^0.18.1"
+    "@graphprotocol/graph-cli": "0.21.1",
+    "@graphprotocol/graph-ts": "0.20.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
